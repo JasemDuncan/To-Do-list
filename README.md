@@ -1,18 +1,17 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To Do List app
 
-> One paragraph statement about the project.
+> This is a minimalist to do list app, where you can add task, erase them, and drag and drop in the order you prefer.
 
 ![screenshot](./app_screenshot.png)
 
-Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- JavaScript
 
 ## Live Demo
 
@@ -28,32 +27,24 @@ Additional description about the project and its features.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+- Node
 
 ### Setup
-
-### Install
-
-### Usage
-
-### Run tests
+- npm install
+- clone the repository
+- npm install webpack webpack-cli --save-dev
 
 ### Deployment
-
+-npm run build
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Jasem Valencia**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@JasemValencia](https://github.com/JasemDuncan)
+- Twitter: [@JasemValencia](https://twitter.com/JasemValencia)
+- LinkedIn: [JasemValencia](https://www.linkedin.com/in/jasem-duncan-valencia/
 
 ## 🤝 Contributing
 
