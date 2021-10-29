@@ -1,6 +1,87 @@
 .hello {
     color: red;
-  }
-  body {
-    background-color: bisque;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  color: rgb(105, 103, 103);
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 10px;
+}
+
+.titleRefresh{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  height: 45px;
+  width: 370px;
+}
+
+.refresh{
+  width: 20px;
+  /* background-color: aqua; */
+}
+
+.addTask{
+  display: flex;
+  flex-direction: row;
+  margin: 5px;  
+}
+
+.inputAdd{
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  height: 40px;
+  width: 380px;
+  border: none;
+  font-style: italic;
+  font-size: 17px;
+  font-family: 'Zen Kurenaido', sans-serif;
+}
+
+.list-container{
+  width: 100%;
+}
+.lshtml{
+  list-style-type: none;
+  height: 40px;
+  width: 100%;
+}
+
+.clear {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color:  rgb(230, 230, 230);
+  height: 40px;
+}
+
+.inputClear{
+  background-color: transparent;
+  border-top: none;
+  border-style: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: 'Zen Kurenaido', sans-serif;
 }
