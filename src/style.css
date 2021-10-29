@@ -1,11 +1,11 @@
 .hello {
-    color: red;
+  color: red;
 }
 
 body {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   color: rgb(105, 103, 103);
   font-family: 'Zen Kurenaido', sans-serif;
   font-size: 18px;
@@ -21,7 +21,7 @@ body {
   padding: 10px;
 }
 
-.titleRefresh{
+.titleRefresh {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -29,26 +29,27 @@ body {
 
 .title {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   justify-content: center;
   height: 45px;
   width: 370px;
 }
 
-.refresh{
+.refresh {
   width: 20px;
+
   /* background-color: aqua; */
 }
 
-.addTask{
+.addTask {
   display: flex;
   flex-direction: row;
-  margin: 5px;  
+  margin: 5px;
 }
 
-.inputAdd{
+.inputAdd {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   justify-content: center;
   height: 40px;
   width: 380px;
@@ -58,10 +59,11 @@ body {
   font-family: 'Zen Kurenaido', sans-serif;
 }
 
-.list-container{
+.list-container {
   width: 100%;
 }
-.lshtml{
+
+.lshtml {
   list-style-type: none;
   height: 40px;
   width: 100%;
@@ -73,11 +75,11 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color:  rgb(230, 230, 230);
+  background-color: rgb(230, 230, 230);
   height: 40px;
 }
 
-.inputClear{
+.inputClear {
   background-color: transparent;
   border-top: none;
   border-style: none;
