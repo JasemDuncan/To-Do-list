@@ -13,8 +13,7 @@ export function updateTask(newtextinput,ToDoTaskElement) {
     console.log('change');
     console.log(newtextinput);
     console.log("ToDOTaskElement.index:    "+ToDoTaskElement.index);
-    // console.log(ToDoTaskElement.index);
-    // console.log(ToDoTaskElement.description);
+ 
     console.log('end');
     const PreToDoTask = localStorage.getItem('ToDoList');
     const arr = JSON.parse(PreToDoTask);
