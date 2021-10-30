@@ -87,3 +87,11 @@ body {
   font-size: 17px;
   font-family: 'Zen Kurenaido', sans-serif;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-line-through {
+  text-decoration: none;
+}
