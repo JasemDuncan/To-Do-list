@@ -52,7 +52,7 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 40px;
-  width: 380px;
+  width: 455px;
   border: none;
   font-style: italic;
   font-size: 17px;
@@ -94,4 +94,18 @@ body {
 
 .no-line-through {
   text-decoration: none;
+}
+
+/* button */
+.button{
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color:rgb(223, 219, 223);
+  color: rgb(105, 103, 103);;
+  cursor: pointer;
+  height: 28px;
+}
+
+.notEditable{
+  border: 1px solid transparent;
 }

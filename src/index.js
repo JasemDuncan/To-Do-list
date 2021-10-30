@@ -1,28 +1,14 @@
 import './style.css';
 import * as statusUpdateAll from './completed';
+import * as crud from './crud'
+import { values } from 'lodash';
 
-const ToDoTask = [
-  {
-    description: 'Wash the dishes',
-    completed: true,
-    index: 3,
-  },
-  {
-    description: 'Complete To Do list proyect',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'Check linters',
-    completed: false,
-    index: 1,
-  },
-];
+const ToDoTask = [];
 
 ToDoTask.sort((a, b) => a.index - b.index);
 
-function SaveLocalStorage(ToDoTask) {
-  localStorage.setItem('ToDoList', JSON.stringify(ToDoTask));
+function SaveLocalStorage(ToDoTask2) {
+  localStorage.setItem('ToDoList', JSON.stringify(ToDoTask2));
 }
 
 function SaveLocalStoragePerElement(elementArray) {
@@ -37,9 +23,10 @@ function SaveLocalStoragePerElement(elementArray) {
 }
 
 function iterateTask(ToDoTaskElement) {
+  
   const lsHhtml = document.createElement('li');
   const chkHtml = document.createElement('input');
-  const lblHtml = document.createElement('label');
+  const lblHtml = document.createElement('input');
 
   chkHtml.type = 'checkbox';
   chkHtml.checked = ToDoTaskElement.completed;
@@ -59,8 +46,14 @@ function iterateTask(ToDoTaskElement) {
     lblHtml.classList = 'no-line-through';
   }
 
-  lblHtml.innerHTML = ToDoTaskElement.description;
 
+
+  lblHtml.classList = 'notEditable'
+  lblHtml.value = ToDoTaskElement.description;
+
+  lblHtml.addEventListener('change', () => {
+    crud.updateTask(lblHtml.value,ToDoTaskElement);
+  });
   lsHhtml.classList = 'lshtml';
 
   lsHhtml.appendChild(chkHtml);
@@ -69,7 +62,8 @@ function iterateTask(ToDoTaskElement) {
 }
 
 function LoadData(arr) {
-  for (let i = 0; i < arr.length; i += 1) {
+  
+  for (let i = 0; i < arr.length; i += 1) {    
     iterateTask(arr[i]);
   }
 }
@@ -77,6 +71,7 @@ function LoadData(arr) {
 function LoadLocalStorage() {
   const PreToDoTask = localStorage.getItem('ToDoList');
   const array = JSON.parse(PreToDoTask);
+  
   LoadData(array);
   SaveLocalStorage(array);
 }
@@ -89,3 +84,19 @@ window.onload = function Load() {
     SaveLocalStorage(ToDoTask);
   }
 };
+
+// Implement CRUD
+function eraseList(){
+  document.querySelector('.chkHtml').remove();
+  document.querySelector('.lblHtml').remove();
+};
+
+document.getElementById('btnIcon').addEventListener("click", 
+  function(e){
+    console.log("Jasem");
+    console.log(document.getElementById('lblTask').value);
+    crud.addNewTask(document.getElementById('lblTask').value);    
+    location.reload();
+    // LoadLocalStorage();
+
+});
