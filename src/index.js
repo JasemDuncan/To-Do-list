@@ -27,6 +27,7 @@ function iterateTask(ToDoTaskElement) {
   const lsHhtml = document.createElement('li');
   const chkHtml = document.createElement('input');
   const lblHtml = document.createElement('input');
+  const btnErase =document.createElement('button');
 
   chkHtml.type = 'checkbox';
   chkHtml.checked = ToDoTaskElement.completed;
@@ -35,26 +36,35 @@ function iterateTask(ToDoTaskElement) {
     if (ToDoTaskElement.completed) {
       lblHtml.classList = 'line-through';
       lblHtml.classList = 'notEditable'
+      btnErase.classList='unHideEraseButton';
     } else {
       lblHtml.classList = 'no-line-through';
       lblHtml.classList = 'noEditableUnCheck';
+      btnErase.classList='hideEraseButton';
     }
     SaveLocalStoragePerElement(ToDoTaskElement);
   });
 
   if (ToDoTaskElement.completed) {
     lblHtml.classList = 'line-through';
-    lblHtml.classList = 'notEditable'
+    lblHtml.classList = 'notEditable';
+    btnErase.classList='unHideEraseButton';
   } else {
     console.log('Cargo sin estar checked');
     lblHtml.classList = 'no-line-through';
     lblHtml.classList = 'noEditableUnCheck';
+    btnErase.classList='hideEraseButton';
   }
+  
+  btnErase.textContent='Erase'; 
 
+  btnErase.addEventListener('click', ()=>{
+    crud.deleteTask(ToDoTaskElement);
+    location.reload();
+  });
 
-
-  // lblHtml.classList = 'notEditable'
   lblHtml.value = ToDoTaskElement.description;
+  
 
   lblHtml.addEventListener('change', () => {
     crud.updateTask(lblHtml.value,ToDoTaskElement);
@@ -63,6 +73,7 @@ function iterateTask(ToDoTaskElement) {
 
   lsHhtml.appendChild(chkHtml);
   lsHhtml.appendChild(lblHtml);
+  lsHhtml.appendChild(btnErase);  
   document.querySelector('.list-container').appendChild(lsHhtml);
 }
 

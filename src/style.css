@@ -114,3 +114,22 @@ body {
 .noEditableUnCheck{
   border: 1px solid transparent;
 }
+
+.hideEraseButton{
+  display: none;
+  border: 1px solid transparent;
+  color: red;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color:rgb(223, 219, 223);
+}
+
+.unHideEraseButton{
+  
+  border: 1px solid transparent;
+  color: red;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color:rgb(223, 219, 223);
+  
+}

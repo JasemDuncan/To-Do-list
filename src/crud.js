@@ -29,4 +29,17 @@ export function updateTask(newtextinput,ToDoTaskElement) {
     console.log(arr);
     localStorage.setItem('ToDoList', JSON.stringify(arr));
 };
+
+export function deleteTask(ToDoTaskElement){
+    const PreToDoTask = localStorage.getItem('ToDoList');
+    const arrr = JSON.parse(PreToDoTask);
+    for(let i = 0; i < arrr.length; i += 1){        
+        if(arrr[i].index===ToDoTaskElement.index){
+            console.log('inside if');
+            arrr.splice(i,1);
+        }
+    };
+    console.log('outsite FOR');
+    localStorage.setItem('ToDoList', JSON.stringify(arrr));
+};
 //   export default addNewTask;
