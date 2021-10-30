@@ -108,4 +108,9 @@ body {
 
 .notEditable{
   border: 1px solid transparent;
+  text-decoration: line-through;
+}
+
+.noEditableUnCheck{
+  border: 1px solid transparent;
 }

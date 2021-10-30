@@ -34,21 +34,26 @@ function iterateTask(ToDoTaskElement) {
     statusUpdateAll.statusUpdate(ToDoTaskElement);
     if (ToDoTaskElement.completed) {
       lblHtml.classList = 'line-through';
+      lblHtml.classList = 'notEditable'
     } else {
       lblHtml.classList = 'no-line-through';
+      lblHtml.classList = 'noEditableUnCheck';
     }
     SaveLocalStoragePerElement(ToDoTaskElement);
   });
 
   if (ToDoTaskElement.completed) {
     lblHtml.classList = 'line-through';
+    lblHtml.classList = 'notEditable'
   } else {
+    console.log('Cargo sin estar checked');
     lblHtml.classList = 'no-line-through';
+    lblHtml.classList = 'noEditableUnCheck';
   }
 
 
 
-  lblHtml.classList = 'notEditable'
+  // lblHtml.classList = 'notEditable'
   lblHtml.value = ToDoTaskElement.description;
 
   lblHtml.addEventListener('change', () => {
