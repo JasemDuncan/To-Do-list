@@ -1,4 +1,5 @@
 import './style.css';
+import * as statusUpdateAll from './completed';
 
 const ToDoTask = [
   {
@@ -20,14 +21,25 @@ const ToDoTask = [
 
 ToDoTask.sort((a, b) => a.index - b.index);
 
-function iterateTask(ToDoTask) {
+function iterateTask(ToDoTaskElement) {
   const lsHhtml = document.createElement('li');
   const chkHtml = document.createElement('input');
   const lblHtml = document.createElement('label');
 
   chkHtml.type = 'checkbox';
-  chkHtml.checked = ToDoTask.completed;
-  lblHtml.innerHTML = ToDoTask.description;
+  chkHtml.checked = ToDoTaskElement.completed;
+  chkHtml.addEventListener('change',()=>{
+    statusUpdateAll.statusUpdate(ToDoTaskElement);
+    if(chkHtml.checked){
+      lblHtml.classList='line-through';
+    }
+    else{
+      lblHtml.classList='no-line-through';
+    }    
+    SaveLocalStoragePerElement(ToDoTaskElement);
+    
+  });
+  lblHtml.innerHTML = ToDoTaskElement.description;
 
   lsHhtml.classList = 'lshtml';
 
@@ -36,6 +48,42 @@ function iterateTask(ToDoTask) {
   document.querySelector('.list-container').appendChild(lsHhtml);
 }
 
-for (let i = 0; i < ToDoTask.length; i += 1) {
-  iterateTask(ToDoTask[i]);
-}
+function LoadData(arr){
+  for (let i = 0; i < arr.length; i += 1) {
+    iterateTask(arr[i]);
+  }
+};
+
+function LoadLocalStorage(){
+  let PreToDoTask=localStorage.getItem('ToDoList');
+  let array=JSON.parse(PreToDoTask);
+  LoadData(array);
+  SaveLocalStorage(array);
+};
+
+function SaveLocalStorage(ToDoTask){
+  localStorage.setItem('ToDoList',JSON.stringify(ToDoTask));  
+  console.log('valencia vargas');
+};
+
+function SaveLocalStoragePerElement(elementArray){
+  let PreToDoTask=localStorage.getItem('ToDoList');
+  let array=JSON.parse(PreToDoTask);
+  for(let i=0; i<array.length; i++){ 
+    if(array[i].index==elementArray.index){
+      array[i].completed=elementArray.completed;    
+    }
+  }
+  SaveLocalStorage(array);  
+};
+
+window.onload= function(){
+  if(localStorage.getItem('ToDoList')){
+    console.log('Exist localstorage data');
+    LoadLocalStorage();    
+  }else{
+    console.log('Does not exist localstoragedata');
+    LoadData(ToDoTask);      
+    SaveLocalStorage(ToDoTask);
+  }    
+};
