@@ -45,7 +45,7 @@ function iterateTask(ToDoTaskElement) {
     } else {
       lblHtml.classList = 'no-line-through';
       lblHtml.classList = 'noEditableUnCheck';
-      btnErase.classList = 'hideEraseButton';
+      btnErase.classList = 'unHideEraseButton';
     }
     SaveLocalStoragePerElement(ToDoTaskElement);
   });
@@ -57,7 +57,7 @@ function iterateTask(ToDoTaskElement) {
   } else {
     lblHtml.classList = 'no-line-through';
     lblHtml.classList = 'noEditableUnCheck';
-    btnErase.classList = 'hideEraseButton';
+    btnErase.classList = 'unHideEraseButton';
   }
 
   btnErase.textContent = 'Erase';

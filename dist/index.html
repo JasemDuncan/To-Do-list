@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Wbpack Exercise</title>
 <script defer src="main.js"></script></head>
 <body>
@@ -15,12 +16,14 @@
             <div class="refresh"></div>
         </div>
         <div class="addTask">
-            <input type="text" id="" name="" class="inputAdd" placeholder="Add to your list..">
-            <!-- <button>INTRO</button> -->
+            <input type="text" id="lblTask" name="" class="inputAdd" placeholder="Add to your list..">
+            <button class="button" id="btnIcon">
+                <i class="material-icons">attachment</i> 
+                </button>
         </div>
-        <div class="list-container"></div>
+        <ul class="list-container" id="container-list"></ul>
         <div class="clear">
-            <button class="inputClear" type="button">Clear all completed</button>
+            <button id="clearAll" class="inputClear" type="button">Clear all completed</button>
         </div>
     </div>
     
