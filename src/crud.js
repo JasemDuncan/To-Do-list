@@ -1,11 +1,13 @@
 export function addNewTask(lblTask) {
-    console.log("addd new tasssk");
+    
     const PreToDoTask = localStorage.getItem('ToDoList');
     const array = JSON.parse(PreToDoTask);
-    console.log(lblTask);
-    console.log(array);
-    array.push({description: lblTask, completed: false, index: array.length +1});
-    console.log(array);
+    let temp=[];
+    array.forEach(el => {
+        temp.push(parseInt(el.index));
+    });    
+    let newIndex= array.length== 0 ? 1: Math.max(...temp)+1;    
+    array.push({description: lblTask, completed: false, index: newIndex});
     localStorage.setItem('ToDoList', JSON.stringify(array));
 };
   
@@ -30,16 +32,36 @@ export function updateTask(newtextinput,ToDoTaskElement) {
     localStorage.setItem('ToDoList', JSON.stringify(arr));
 };
 
-export function deleteTask(ToDoTaskElement){
+export function reorder(arrr){
+    let temp=[];
+    arrr.forEach(
+        (oldElement,index)=>{
+            let newElement=null;  
+            oldElement.index=index+1; 
+            newElement=oldElement; 
+            temp.push(newElement);
+        });
+    return temp;    
+    
+};
+
+export function deleteTask(index){
     const PreToDoTask = localStorage.getItem('ToDoList');
     const arrr = JSON.parse(PreToDoTask);
-    for(let i = 0; i < arrr.length; i += 1){        
-        if(arrr[i].index===ToDoTaskElement.index){
+    for(let i = 0; i < arrr.length; i += 1){  
+        console.log(arrr[i].index);      
+        if(parseInt(arrr[i].index)===parseInt(index)){
             console.log('inside if');
             arrr.splice(i,1);
         }
-    };
-    console.log('outsite FOR');
-    localStorage.setItem('ToDoList', JSON.stringify(arrr));
+    };    
+    localStorage.setItem('ToDoList', JSON.stringify(reorder(arrr)));
+};
+
+export function deleteAllSelected(){
+    const PreToDoTask = localStorage.getItem('ToDoList');
+    const arrr = JSON.parse(PreToDoTask);
+        
+    localStorage.setItem('ToDoList', JSON.stringify(reorder(arrr.filter((el)=>el.completed===false))));
 };
 //   export default addNewTask;

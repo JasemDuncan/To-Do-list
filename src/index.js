@@ -7,6 +7,11 @@ const ToDoTask = [];
 
 ToDoTask.sort((a, b) => a.index - b.index);
 
+function clearData(){
+  let myChilds=window.document.getElementById('container-list');
+  myChilds.innerHTML = '';
+};
+
 function SaveLocalStorage(ToDoTask2) {
   localStorage.setItem('ToDoList', JSON.stringify(ToDoTask2));
 }
@@ -31,7 +36,9 @@ function iterateTask(ToDoTaskElement) {
 
   chkHtml.type = 'checkbox';
   chkHtml.checked = ToDoTaskElement.completed;
-  chkHtml.addEventListener('change', () => {
+  chkHtml.value=ToDoTaskElement.index;
+  chkHtml.addEventListener('change', (e) => {
+    console.log(e.target);
     statusUpdateAll.statusUpdate(ToDoTaskElement);
     if (ToDoTaskElement.completed) {
       lblHtml.classList = 'line-through';
@@ -56,11 +63,15 @@ function iterateTask(ToDoTaskElement) {
     btnErase.classList='hideEraseButton';
   }
   
-  btnErase.textContent='Erase'; 
+  btnErase.textContent='Erase';
+  btnErase.value=ToDoTaskElement.index; 
 
-  btnErase.addEventListener('click', ()=>{
-    crud.deleteTask(ToDoTaskElement);
-    location.reload();
+  btnErase.addEventListener('click', (e)=>{
+    crud.deleteTask(e.target.value);
+    // location.reload();
+    clearData();
+    LoadLocalStorage();
+    console.log(e.target.value);
   });
 
   lblHtml.value = ToDoTaskElement.description;
@@ -112,7 +123,18 @@ document.getElementById('btnIcon').addEventListener("click",
     console.log("Jasem");
     console.log(document.getElementById('lblTask').value);
     crud.addNewTask(document.getElementById('lblTask').value);    
-    location.reload();
-    // LoadLocalStorage();
+    clearData();
+    // location.reload();
+    LoadLocalStorage();
 
 });
+
+document.getElementById('clearAll').addEventListener("click",
+  function(e){
+    console.log("PRESS CLEAR ALL");
+    crud.deleteAllSelected();
+    clearData();
+    LoadLocalStorage();
+  }  
+);
+
