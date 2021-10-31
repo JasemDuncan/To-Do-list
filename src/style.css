@@ -97,39 +97,37 @@ body {
 }
 
 /* button */
-.button{
+.button {
   border: 1px solid transparent;
   border-radius: 10px;
-  background-color:rgb(223, 219, 223);
-  color: rgb(105, 103, 103);;
+  background-color: rgb(223, 219, 223);
+  color: rgb(105, 103, 103);
   cursor: pointer;
   height: 28px;
 }
 
-.notEditable{
+.notEditable {
   border: 1px solid transparent;
   text-decoration: line-through;
 }
 
-.noEditableUnCheck{
+.noEditableUnCheck {
   border: 1px solid transparent;
 }
 
-.hideEraseButton{
+.hideEraseButton {
   display: none;
   border: 1px solid transparent;
   color: red;
   cursor: pointer;
   border-radius: 10px;
-  background-color:rgb(223, 219, 223);
+  background-color: rgb(223, 219, 223);
 }
 
-.unHideEraseButton{
-  
+.unHideEraseButton {
   border: 1px solid transparent;
   color: red;
   cursor: pointer;
   border-radius: 10px;
-  background-color:rgb(223, 219, 223);
-  
+  background-color: rgb(223, 219, 223);
 }
