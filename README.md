@@ -13,15 +13,9 @@
 - CSS
 - JavaScript
 
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
@@ -35,8 +29,8 @@ To get a local copy up and running follow these simple example steps.
 - npm install webpack webpack-cli --save-dev
 
 ### Deployment
--npm run build
-
+- npm run build
+- npm start 
 
 ## Authors
 
@@ -44,7 +38,7 @@ To get a local copy up and running follow these simple example steps.
 
 - GitHub: [@JasemValencia](https://github.com/JasemDuncan)
 - Twitter: [@JasemValencia](https://twitter.com/JasemValencia)
-- LinkedIn: [JasemValencia](https://www.linkedin.com/in/jasem-duncan-valencia/
+- LinkedIn: [@JasemValencia](https://www.linkedin.com/in/jasem-duncan-valencia/)
 
 ## 🤝 Contributing
 
